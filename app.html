@@ -1,2 +1,22 @@
 <!-- 1. Construct this page with a layout base on /mocks folder -->
 <!-- 2. Using async pipe, display data in reference to app.ts > App Component scope variables -->
+
+<div (click)="toggleCustomers()" *ngIf="!showCustomers">Show All Customers ({{ customers.length }})</div>
+<div (click)="toggleCustomers()" *ngIf="showCustomers">Hide Customers</div>
+
+<div *ngIf="showCustomers">
+    <div *ngFor="let customer of customers">
+        <h3>Customer {{ index }}</h3>
+        
+        <table>
+            <tr>
+                <td>{{ customer.age }}</td>
+                <td>
+                    {{ customer.firstName }}<br>
+                    {{ customer.lastName }}
+                </td>
+                <td>{{ customer.address }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
